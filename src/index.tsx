@@ -5,11 +5,12 @@ const app = new Hono()
 
 app.use(renderer)
 
-// app.get('/', (c) => {
-//   return c.render(<h1>Hello!</h1>)
-// })
+app.get('/', (c) => {
+   return c.render(<h1>Hello!</h1>)
+})
 
-app.get('/', async (c) => {
+
+app.get('/ai', async (c) => {
   const request = c.req.raw;
   const queryParams = request.url.searchParams;
   const messages = queryParams.get('messages');
