@@ -12,6 +12,7 @@ app.get('/', (c) => {
 
 app.get('/ai', async (c) => {
   const request = c.req.raw;
+  console.log(request.url);
   const queryParams = request.url.searchParams;
   const messages = queryParams.get('messages');
   return c.body(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
