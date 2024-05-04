@@ -1,7 +1,9 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
 
-const app = new Hono()
+
+type Bindings = { R2: R2Bucket };
+const app = new Hono<{ Bindings: Bindings }>();
 
 interface Env {
 	AI: Ai
@@ -18,7 +20,7 @@ app.get('/ai', async (c) => {
   const request = c.req.raw;
   const queryParams = new URL(request.url).searchParams;
   const messages = queryParams.get('messages');
-  return c.body(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
+  return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages,
   	stream: true
   }), 201, {
