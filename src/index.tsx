@@ -10,11 +10,11 @@ app.use(renderer)
 // })
 
 app.get('/', async (c) => {
-  return new Response(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
+  return c.body(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages: c.req.param('messages'),
   	stream: true
-  }), {
-	headers: { 'content-type': 'text/event-stream' },
+  }), 201, {
+	'content-type': 'text/event-stream'
   });
 })
 
