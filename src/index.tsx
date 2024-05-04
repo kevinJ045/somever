@@ -3,6 +3,10 @@ import { renderer } from './renderer'
 
 const app = new Hono()
 
+interface Env {
+	AI: Ai
+}
+
 app.use(renderer)
 
 app.get('/', (c) => {
@@ -12,7 +16,6 @@ app.get('/', (c) => {
 
 app.get('/ai', async (c) => {
   const request = c.req.raw;
-  console.log(request.url);
   const queryParams = new URL(request.url).searchParams;
   const messages = queryParams.get('messages');
   return c.body(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
