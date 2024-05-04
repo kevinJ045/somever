@@ -22,9 +22,9 @@ app.post('/ai', async (c) => {
   const messages = [...body.system, ...body.user];
   return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages,
-  	// stream: true
-  }), 200, {
-	// 'content-type': 'text/event-stream'
+  	stream: true
+  }), 201, {
+	'content-type': 'text/event-stream'
   });
 })
 
