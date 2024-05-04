@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { renderer } from './renderer'
 
 
-type Bindings = { R2: R2Bucket };
+type Bindings = { R2: R2Bucket, AI: Ai };
 const app = new Hono<{ Bindings: Bindings }>();
 
 interface Env {
