@@ -10,8 +10,11 @@ app.use(renderer)
 // })
 
 app.get('/', async (c) => {
+  const request = c.req.raw;
+  const queryParams = request.url.searchParams;
+  const messages = queryParams.get('messages');
   return c.body(await env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
-  	messages: c.req.param('messages'),
+  	messages,
   	stream: true
   }), 201, {
 	'content-type': 'text/event-stream'
