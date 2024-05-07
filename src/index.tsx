@@ -24,7 +24,6 @@ app.post('/ai', async (c) => {
   	// messages,
   	prompt
   });
-  console.log(data);
   return c.body(data.response, 200);
 })
 
