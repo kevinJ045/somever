@@ -17,8 +17,8 @@ app.get('/', (c) => {
 
 
 app.post('/ai', async (c) => {
-  const body = await c.req.parseBody();
-  console.log(Object.keys(body));
+  const body = await c.req.json();
+  console.log(body);
   const messages = [...body.system, ...body.user];
   return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages
