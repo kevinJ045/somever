@@ -15,9 +15,9 @@ app.get('/ai', async (c) => {
 	return c.render(<div>
 		<h1>AI Options</h1>
 		<ul>
-			<li><code>messages</code><span>(only if no prompt)\: An array of</span> <code>{ role: 'system' | 'user', content: 'string' }</code></li>
-			<li><code>prompt</code><span>(only if no messages)\: A 'string'</span></li>
-			<li><code>model</code><span>(optional)\: A 'string' for the model name</span></li>
+			<li><code>messages</code><span>{"(only if no prompt)\: An array of"}</span> <code>{ role: 'system' | 'user', content: 'string' }</code></li>
+			<li><code>prompt</code><span>{"(only if no messages)\: A 'string'"}</span></li>
+			<li><code>model</code><span>{"(optional)\: A 'string' for the model name"}</span></li>
 		</ul>
 	</div>);
 });
