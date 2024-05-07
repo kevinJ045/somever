@@ -12,13 +12,13 @@ interface Env {
 app.use(renderer)
 
 app.get('/', (c) => {
-   return c.render(<h1>Hello sss!</h1>)
+   return c.render(<h1>Hello s22!</h1>)
 })
 
 
 app.post('/ai', async (c) => {
   const body = c.req.parseBody();
-  console.log('Requesting ai');
+  console.log(body);
   const messages = [...body.system, ...body.user];
   return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages
