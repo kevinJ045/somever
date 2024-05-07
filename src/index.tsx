@@ -12,19 +12,19 @@ interface Env {
 app.use(renderer)
 
 app.get('/', (c) => {
-   return c.render(<h1>Hello s22!</h1>)
+   return c.render(<h1>Hello!</h1>)
 })
 
 
 app.post('/ai', async (c) => {
   const body = await c.req.json();
-  console.log(body);
   const messages = [...body.messages];
   const prompt = body.prompt;
-  return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
+  const data = await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	// messages,
   	prompt
-  }), 200);
+  });
+  return c.body(data.result.response, 200);
 })
 
 export default app
