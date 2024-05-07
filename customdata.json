@@ -1,0 +1,7 @@
+{
+	"messages": [
+		{ "role": "user", "content": "Hello" },
+		{ "role": "system", "content": "Hi, how are you?" }
+	],
+	"prompt": "I am good, how are you?"
+}
