@@ -1,4 +1,4 @@
-name = "my-app"
+name = "somever"
 pages_build_output_dir = "./dist"
 
 # [vars]
