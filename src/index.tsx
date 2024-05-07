@@ -22,7 +22,7 @@ app.post('/ai', async (c) => {
   const prompt = body.prompt;
   const data = await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
   	messages,
-  	prompt
+    // prompt
   });
   return c.body(data.response, 200);
 })
