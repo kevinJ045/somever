@@ -21,11 +21,8 @@ app.post('/ai', async (c) => {
   const queryParams = new URL(request.url).searchParams;
   const messages = [...body.system, ...body.user];
   return c.body(await c.env.AI.run('@hf/thebloke/neural-chat-7b-v3-1-awq', {
-  	messages,
-  	stream: true
-  }), 201, {
-	'content-type': 'text/event-stream'
-  });
+  	messages
+  }), 200);
 })
 
 export default app
